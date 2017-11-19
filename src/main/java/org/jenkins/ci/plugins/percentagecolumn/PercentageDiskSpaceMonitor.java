@@ -56,7 +56,7 @@ public class PercentageDiskSpaceMonitor extends NodeMonitor {
             if(total<=0)    return null;
             long usable = f.getUsableSpace();
             if(usable<=0)    return null;
-            double percentage = 100 - Math.round((new Long(usable).doubleValue() / new Long(total).doubleValue() ) * 100);
+            double percentage = 100 - Math.round((double) usable / (double) total * 100);
             return new DiskSpace(f.getCanonicalPath(), total, usable, percentage);
         }
         private static final long serialVersionUID = 1L;
